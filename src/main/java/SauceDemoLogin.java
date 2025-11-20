@@ -1,5 +1,3 @@
-package com.example;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,12 +6,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class SauceDemoLogin {
     public static void main(String[] args) {
+        
         // Sätt sökvägen till din chromedriver om den inte finns i PATH.
-        // På Windows t.ex: System.setProperty("webdriver.chrome.driver", "C:\\tools\\chromedriver.exe");
-        // På macOS/Linux t.ex: System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-        // Om chromedriver redan är i PATH kan du kommentera bort följande rad.
-        // System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
-
+        //System.setProperty("webdriver.chrome.driver", "C:\\tools\\chromedriver.exe");
+        
         // Kör Chrome headless eller med UI. Ta bort "--headless" för att se webbläsaren.
         ChromeOptions options = new ChromeOptions();
         // options.addArguments("--headless=new"); // aktivera om du vill köra utan UI
