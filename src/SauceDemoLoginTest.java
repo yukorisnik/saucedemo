@@ -40,7 +40,7 @@ public class SauceDemoLoginTest {
         WebElement passwordInput = driver.findElement(By.id("password"));
         WebElement loginButton = driver.findElement(By.id("login-button"));
 
-        usernameInput.sendKeys("problem_user");
+        usernameInput.sendKeys("standard_user");
         passwordInput.sendKeys("secret_sauce");
         loginButton.click();
 

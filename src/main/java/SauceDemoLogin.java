@@ -26,12 +26,12 @@ public class SauceDemoLogin {
             WebElement passwordInput = driver.findElement(By.id("password"));
             WebElement loginButton = driver.findElement(By.id("login-button"));
 
-            usernameInput.sendKeys("problem_user");
+            usernameInput.sendKeys("standard_user");
             passwordInput.sendKeys("secret_sauce");
             loginButton.click();
 
             // Enkel verifiering: kontrollera att vi är på inventory-sidan
-            Thread.sleep(1000); // kort paus för navigering (ersätt med explicit waits i riktiga tester)
+            Thread.sleep(3000); // kort paus
             String currentUrl = driver.getCurrentUrl();
             if (currentUrl.contains("/inventory.html")) {
                 System.out.println("Login lyckades. Nu på inventory-sidan.");
