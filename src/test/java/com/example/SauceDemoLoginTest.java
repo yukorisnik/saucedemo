@@ -16,7 +16,7 @@ public class SauceDemoLoginTest {
     @BeforeEach
     void setUp() {
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless=new");  // för lyckad Action i github
+        options.addArguments("--headless=new");  // för lyckad Action i github
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
