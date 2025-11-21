@@ -42,7 +42,7 @@ public class SauceDemoLoginTest {
         passwordInput.sendKeys("secret_sauce");
         loginButton.click();
 
-        Thread.sleep(2000);  // Byt till WebDriverWait i riktiga tester
+        Thread.sleep(2000);  // Rek med WebDriverWait i riktiga tester?
 
         String currentUrl = driver.getCurrentUrl();
         assertTrue(currentUrl.contains("inventory.html"),
