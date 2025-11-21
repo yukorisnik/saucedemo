@@ -1,6 +1,6 @@
 package com.example;
-
 import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SauceDemoLoginTest {
 
@@ -44,7 +42,7 @@ public class SauceDemoLoginTest {
         passwordInput.sendKeys("secret_sauce");
         loginButton.click();
 
-        Thread.sleep(1000);  // Byt till WebDriverWait om du vill göra snyggare test
+        Thread.sleep(2000);  // Byt till WebDriverWait i riktiga tester
 
         String currentUrl = driver.getCurrentUrl();
         assertTrue(currentUrl.contains("inventory.html"),

@@ -1,3 +1,4 @@
+package com.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,9 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class SauceDemoLogin {
     public static void main(String[] args) {
         
-        // Sätt sökvägen till din chromedriver om den inte finns i PATH.
-        //System.setProperty("webdriver.chrome.driver", "C:\\tools\\chromedriver.exe");
-        
+            
         // Kör Chrome headless eller med UI. Ta bort "--headless" för att se webbläsaren.
         ChromeOptions options = new ChromeOptions();
         // options.addArguments("--headless=new"); // aktivera om du vill köra utan UI
@@ -34,9 +33,9 @@ public class SauceDemoLogin {
             Thread.sleep(3000); // kort paus
             String currentUrl = driver.getCurrentUrl();
             if (currentUrl.contains("/inventory.html")) {
-                System.out.println("Login lyckades. Nu på inventory-sidan.");
+                System.out.println("  Login lyckades!  ");
             } else {
-                System.out.println("Login misslyckades eller annan sida: " + currentUrl);
+                System.out.println("Login misslyckades!! " + currentUrl);
             }
         } catch (Exception e) {
             e.printStackTrace();
