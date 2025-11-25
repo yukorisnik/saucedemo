@@ -11,7 +11,7 @@ public class SauceDemoLogin {
             
         // Kör Chrome headless eller med UI. Ta bort "--headless" för att se webbläsaren.
         ChromeOptions options = new ChromeOptions();
-        // options.addArguments("--headless=new"); // aktivera om du vill köra utan UI
+        options.addArguments("--headless=new"); // aktivera om du vill köra utan UI
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
