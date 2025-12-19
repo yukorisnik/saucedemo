@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+
 public class SauceDemoLoginTest {
 
     private WebDriver driver;
@@ -16,7 +17,7 @@ public class SauceDemoLoginTest {
     @BeforeEach
     void setUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");  // för lyckad Action i github
+        options.addArguments("--headless=new");  // måste köra headless Action i github
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
@@ -46,6 +47,8 @@ public class SauceDemoLoginTest {
 
         String currentUrl = driver.getCurrentUrl();
         assertTrue(currentUrl.contains("inventory.html"),
-                "Login misslyckades – hamnade på: " + currentUrl);
+                "Login misslyckades: hamnade på: " + currentUrl);
+        System.out.println("Login lyckades!");
+
     }
 }

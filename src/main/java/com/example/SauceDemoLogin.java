@@ -14,10 +14,11 @@ public class SauceDemoLogin {
             options.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage");
 
         WebDriver driver = new ChromeDriver(options);
+        
 
         try {
             driver.get("https://www.saucedemo.com/");
-
+            
             // Hitta inputfälten och knappen
             WebElement usernameInput = driver.findElement(By.id("user-name"));
             WebElement passwordInput = driver.findElement(By.id("password"));
@@ -27,13 +28,13 @@ public class SauceDemoLogin {
             passwordInput.sendKeys("secret_sauce");
             loginButton.click();
 
-            // Enkel verifiering: kontrollera att vi är på inventory-sidan
+            // Enkel verifiering: kontrollera att vi är på sidan
             Thread.sleep(3000); // kort paus
             String currentUrl = driver.getCurrentUrl();
             if (currentUrl.contains("/inventory.html")) {
                 System.out.println("  Login lyckades!  ");
             } else {
-                System.out.println("Login misslyckades!! " + currentUrl);
+                System.out.println("Login misslyckades!" + currentUrl);
             }
         } catch (Exception e) {
             e.printStackTrace();
