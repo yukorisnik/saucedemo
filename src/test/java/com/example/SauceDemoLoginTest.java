@@ -76,7 +76,7 @@ public class SauceDemoLoginTest {
         // Kolla felmeddelandet
         assertTrue(errorMessage.isDisplayed(),
             "Förväntat felmeddelande visades inte vid misslyckad inloggning");
-
+        logger.info("Misslyckad inloggning testad med fel användare.");
         System.out.println("Misslyckad inloggning testad med fel användare.");
     }
     
@@ -101,6 +101,7 @@ public class SauceDemoLoginTest {
         // Kolla felmeddelandet
         assertTrue(errorMessage.isDisplayed(),
             "Förväntat felmeddelande visades inte vid misslyckad inloggning");
+        logger.info("Misslyckad inloggning testad med fel lösen.");
         System.out.println("Misslyckad inloggning testad med fel lösen.");
     }
 }
