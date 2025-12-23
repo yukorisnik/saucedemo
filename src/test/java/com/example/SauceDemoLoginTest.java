@@ -43,12 +43,62 @@ public class SauceDemoLoginTest {
         passwordInput.sendKeys("secret_sauce");
         loginButton.click();
 
-        Thread.sleep(2000);  // Rek med WebDriverWait i riktiga tester?
+        Thread.sleep(2000);  // Rek med WebDriverWait i riktiga tester
 
         String currentUrl = driver.getCurrentUrl();
         assertTrue(currentUrl.contains("inventory.html"),
                 "Login misslyckades: hamnade på: " + currentUrl);
         System.out.println("Login lyckades!");
 
+    }
+
+    @Test
+    void testFailedUserLogin() throws InterruptedException {
+        driver.get("https://www.saucedemo.com/");
+
+        WebElement usernameInput = driver.findElement(By.id("user-name"));
+        WebElement passwordInput = driver.findElement(By.id("password"));
+        WebElement loginButton = driver.findElement(By.id("login-button"));
+
+        // fel användare matas in
+        usernameInput.sendKeys("wrong_user");
+        passwordInput.sendKeys("secret_sauce");
+        loginButton.click();
+
+        Thread.sleep(2000);  // Rekommenderat: använd WebDriverWait i riktiga tester
+
+        // Hämta felmeddelandet
+        WebElement errorMessage = driver.findElement(By.cssSelector("h3[data-test='error']"));
+
+        // Kolla felmeddelandet
+        assertTrue(errorMessage.isDisplayed(),
+            "Förväntat felmeddelande visades inte vid misslyckad inloggning");
+
+        System.out.println("Misslyckad inloggning testad med fel användare.");
+    }
+    
+    @Test
+    void testFailedPassLogin() throws InterruptedException {
+        driver.get("https://www.saucedemo.com/");
+
+        WebElement usernameInput = driver.findElement(By.id("user-name"));
+        WebElement passwordInput = driver.findElement(By.id("password"));
+        WebElement loginButton = driver.findElement(By.id("login-button"));
+
+        // fel lösen matas in
+        usernameInput.sendKeys("standard_user");
+        passwordInput.sendKeys("wrong_password");
+        loginButton.click();
+
+        Thread.sleep(2000); 
+
+        // Hämta felmeddelandet
+        WebElement errorMessage = driver.findElement(By.cssSelector("h3[data-test='error']"));
+
+        // Kolla felmeddelandet
+        assertTrue(errorMessage.isDisplayed(),
+            "Förväntat felmeddelande visades inte vid misslyckad inloggning");
+
+        System.out.println("Misslyckad inloggning testad med fel lösen.");
     }
 }
