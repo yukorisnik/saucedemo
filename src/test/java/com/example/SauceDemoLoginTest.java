@@ -1,4 +1,6 @@
 package com.example;
+import java.util.logging.Logger;
+
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,10 +11,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
 public class SauceDemoLoginTest {
 
     private WebDriver driver;
+    private static final Logger logger = Logger.getLogger(SauceDemoLogin.class.getName());
 
     @BeforeEach
     void setUp() {
@@ -48,6 +50,7 @@ public class SauceDemoLoginTest {
         String currentUrl = driver.getCurrentUrl();
         assertTrue(currentUrl.contains("inventory.html"),
                 "Login misslyckades: hamnade på: " + currentUrl);
+        logger.info("Login lyckades, nu på sidan: " + currentUrl);
         System.out.println("Login lyckades!");
 
     }
@@ -98,7 +101,6 @@ public class SauceDemoLoginTest {
         // Kolla felmeddelandet
         assertTrue(errorMessage.isDisplayed(),
             "Förväntat felmeddelande visades inte vid misslyckad inloggning");
-
         System.out.println("Misslyckad inloggning testad med fel lösen.");
     }
 }
